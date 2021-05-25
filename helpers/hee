@@ -1,0 +1,2 @@
+
+     db.cart.aggregate({$match:{users:objectId(userId)}},$lookup:{from:'products',let:{proList:'$products'},pipeline:[{$match:{$expr:{$in:['$_id',"$$proList"]}}}],as:'cartItems'}}])
